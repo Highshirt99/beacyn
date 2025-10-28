@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { signInWithGoogle } from '../lib/googleSSO'
+import { signInWithGoogle } from "../lib/googleSSO";
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,9 +13,9 @@ export default function Signup() {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center pt-20"
+      className="min-h-screen flex flex-col items-center pt-20 px-8"
       style={{
-        background: "linear-gradient(135deg, #004B59 0%, #006878 100%)",
+        background: "linear-gradient(135deg, #004B59 10%, #001F3F 100%)",
       }}
     >
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
@@ -32,7 +32,7 @@ export default function Signup() {
               placeholder="First Name"
               type="text"
               required
-              className="mt-2 block w-full rounded-md border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="mt-2 block w-full rounded-[5px] border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
           </div>
 
@@ -44,7 +44,7 @@ export default function Signup() {
               placeholder="Email"
               type="email"
               required
-              className="mt-2 block w-full rounded-md border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="mt-2 block w-full rounded-[5px] border border-slate-200 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
           </div>
 
@@ -57,7 +57,7 @@ export default function Signup() {
                 placeholder="••••••••"
                 type={showPassword ? "text" : "password"}
                 required
-                className="block w-full rounded-md border border-slate-200 px-3 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                className="block w-full rounded-[5px] border border-slate-200 px-3 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-indigo-400"
               />
               <button
                 type="button"
@@ -91,15 +91,18 @@ export default function Signup() {
           <div>
             <button
               onClick={async (e) => {
-                e.preventDefault()
+                e.preventDefault();
                 try {
-                  const res = await signInWithGoogle()
-                  console.log('Google sign-up result', res)
+                  const res = await signInWithGoogle();
+                  console.log("Google sign-up result", res);
                   // TODO: send result to your backend to create or authenticate the user
-                  navigate('/')
+                  navigate("/");
                 } catch (err) {
-                  console.error(err)
-                  alert('Google sign-in failed: ' + (err && err.message ? err.message : err))
+                  console.error(err);
+                  alert(
+                    "Google sign-in failed: " +
+                      (err && err.message ? err.message : err)
+                  );
                 }
               }}
               className="w-full border border-slate-200 rounded-md py-2 flex items-center justify-center gap-3 cursor-pointer"
@@ -129,7 +132,19 @@ export default function Signup() {
               </svg>
               <span>Continue With Google</span>
             </button>
+
           </div>
+          
+            <span className="text-slate-700 text-center text-sm flex flex-wrap justify-center gap-1 ">
+              By continuing with google or sign up you agree to Beacyn{" "}
+              <Link to="#" className="text-blue-700">
+                Terms & Conditions
+              </Link>{" "}
+              and{" "}
+              <Link to="#" className="text-blue-700">
+                Privacy Policy
+              </Link>
+            </span>
         </form>
       </div>
     </div>
