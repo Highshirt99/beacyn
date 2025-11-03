@@ -208,9 +208,9 @@ export default function Dashboard() {
               <div className="mt-2 text-2xl font-bold text-gray-800">1,200</div>
               <div className="text-sm text-green-500">Last Quarter +10%</div>
 
-              <div className="mt-6 space-y-3">
+              <div className="mt-6 space-y-3 flex gap-4">
                 {["Q1", "Q2", "Q3", "Q4"].map((q, idx) => (
-                  <div key={q} className="flex items-end gap-3">
+                  <div key={q} className="">
                     <div
                       className={`w-8 bg-blue-300 rounded-t ${
                         idx === 3 ? "h-20" : "h-12"
@@ -234,7 +234,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
             <div className="">
               <div className=" text-gray-500">Services delivered</div>
               <div className="mt-2 font-bold">5</div>

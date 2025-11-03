@@ -24,7 +24,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
       {/* Mobile Menu Button */}
       <button 
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-md hover:bg-gray-100"
+        className="lg:hidden fixed top-8 left-4 z-50 p-2 rounded-md hover:bg-gray-100"
         aria-label="Toggle menu"
       >
         {isMobileMenuOpen ? (
