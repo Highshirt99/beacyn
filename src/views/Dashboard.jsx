@@ -19,14 +19,11 @@ import {
   FiSearch,
   FiBell,
   FiUser,
-  FiCheckCircle,
-  FiClock,
-  FiMenu,
 } from "react-icons/fi";
 import Sidebar from "../components/Sidebar";
-import { HiOutlineCalendar } from "react-icons/hi";
+import { IoCheckmark } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
-
+import { GoPeople } from "react-icons/go";
 
 // Register ChartJS components
 ChartJS.register(
@@ -76,11 +73,10 @@ export default function Dashboard() {
         className="hidden md:block"
       />
 
-   
       {/* Mobile Sidebar (slide-out) */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 z-50 md:hidden ${
-          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <Sidebar
@@ -94,12 +90,9 @@ export default function Dashboard() {
         />
       </div>
 
-
       <main className="md:ml-64 pb-16 md:pb-8 bg-white md:bg-gray-50 ">
         {/* Mobile Header */}
         <div className="flex md:hidden items-center justify-between p-6 fixed top-0 right-0 ">
-         
-
           <div className="flex items-center gap-4">
             <div className="relative w-full">
               <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -111,7 +104,7 @@ export default function Dashboard() {
             <button className="text-gray-600">
               <FiBell size={16} />
             </button>
-             <IoIosArrowDown className="text-gray-400 cursor-pointer relative right-2" />
+            <IoIosArrowDown className="text-gray-400 cursor-pointer relative right-2" />
           </div>
         </div>
 
@@ -166,13 +159,13 @@ export default function Dashboard() {
         </div>
 
         <div className="md:bg-white md:rounded-lg md:shadow md:p-6 md:mb-6 md:mx-8 px-4 py-6">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-6 border-b border-b-gray-200 pb-4 ">
             <h3 className="text-base md:text-lg font-semibold text-gray-800">
               Progress Overview
             </h3>
-            <button className="flex items-center gap-1 text-xs md:text-sm text-gray-500 bg-gray-50 px-2 py-1 rounded">
+            <button className="flex items-center gap-1 text-xs md:text-sm text-gray-500 border border-gray-200 px-2 py-1 justify-center rounded-full w-[60px]">
               <span>Year</span>
-              <HiOutlineCalendar className="ml-1" />
+              <IoIosArrowDown className="ml-1" />
             </button>
           </div>
 
@@ -203,20 +196,18 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="lg:col-span-1 bg-gray-50 p-4 rounded">
+            <div className="w-[250px border border-gray-200 p-4 rounded-md">
               <div className="text-sm text-gray-600">Beneficiary Reach</div>
               <div className="mt-2 text-2xl font-bold text-gray-800">1,200</div>
               <div className="text-sm text-green-500">Last Quarter +10%</div>
 
-              <div className="mt-6 space-y-3 flex gap-4">
+              <div className="mt-6 space-y-3 flex gap-10">
                 {["Q1", "Q2", "Q3", "Q4"].map((q, idx) => (
-                  <div key={q} className="">
+                  <div key={idx} className="">
                     <div
-                      className={`w-8 bg-blue-300 rounded-t ${
-                        idx === 3 ? "h-20" : "h-12"
-                      }`}
+                      className="w-5 bg-gray-200 border-t border-t-gray-800 h-24"
                     />
-                    <div className="text-sm text-gray-500">{q}</div>
+                    <div className="text-sm text-[#61758A] font-bold mt-6">{q}</div>
                   </div>
                 ))}
               </div>
@@ -225,60 +216,99 @@ export default function Dashboard() {
         </div>
 
         <div className="md:bg-white md:rounded-lg md:shadow md:mx-8 md:p-6 px-4 pt-4">
-          <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100">
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-200">
             <h3 className="text-base md:text-lg font-semibold text-gray-800">
               Recent Activities
             </h3>
-            <div className="text-xs md:text-sm text-gray-500">
+            <div className="text-xs md:text-sm text-gray-500 border border-gray-200 px-2 py-1 justify-center rounded-full ">
               1 June 2025 - 20 June 2025
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
             <div className="">
-              <div className=" text-gray-500">Services delivered</div>
+              <div className=" text-gray-500 flex gap-2 items-center">
+                {" "}
+                <div className="bg-[#20C7C7] w-2 h-2 rounded-full" />
+                Services delivered
+              </div>
               <div className="mt-2 font-bold">5</div>
             </div>
             <div className="">
-              <div className=" text-gray-500">Items distributed</div>
+              <div className=" text-gray-500 flex gap-2 items-center">
+                {" "}
+                <div className="bg-[#F0B22B] w-2 h-2 rounded-full" />
+                Items distributed
+              </div>
               <div className="mt-2 font-bold">300</div>
             </div>
             <div className="">
-              <div className=" text-gray-500">New enrollments</div>
+              <div className=" text-gray-500 flex gap-2 items-center">
+                {" "}
+                <div className="bg-[#088738] w-2 h-2 rounded-full" />
+                New enrollments
+              </div>
               <div className="mt-2 font-bold">150</div>
             </div>
             <div className="">
-              <div className=" text-gray-500">Funds received</div>
+              <div className=" text-gray-500 flex gap-2 items-center">
+                {" "}
+                <div className="bg-[#921DAF] w-2 h-2 rounded-full" />
+                Funds received
+              </div>
               <div className="mt-2 font-bold">₦120,000</div>
             </div>
             <div className="">
-              <div className=" text-gray-500">Funds disbursed</div>
+              <div className=" text-gray-500 flex gap-2 items-center">
+                {" "}
+                <div className="bg-[#20C7C7] w-2 h-2 rounded-full" /> Funds
+                disbursed
+              </div>
               <div className="mt-2 font-bold">₦120,000</div>
             </div>
           </div>
-           
+
           <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <div className="text-green-500 mt-1">
-                <FiCheckCircle />
-              </div>
-              <div>
-                <div className="text-sm font-medium">
-                  Project 'Empower Youth' completed
+            <li>
+              <div className="flex items-start gap-3">
+                <div className="font-[18px]">
+                  <IoCheckmark />
                 </div>
-                <div className="text-xs text-gray-500">2 days ago</div>
+                <div>
+                  <div className="text-sm font-medium">
+                    Project 'Empower Youth' completed
+                  </div>
+                  <div className="text-xs text-gray-500">2 days ago</div>
+                </div>
               </div>
+              <div className="w-[1.8px] h-10 bg-gray-200 relative left-2"></div>
             </li>
 
-            <li className="flex items-start gap-3">
-              <div className="text-gray-600 mt-1">
-                <FiClock />
-              </div>
-              <div>
-                <div className="text-sm font-medium">
-                  New funding received for 'Clean Water Initiative'
+            <li>
+              <div className="flex items-start gap-3">
+                <div className="font-[18px]">
+                  <FiDollarSign />
                 </div>
-                <div className="text-xs text-gray-500">1 week ago</div>
+                <div>
+                  <div className="text-sm font-medium">
+                    New funding received for 'Clean Water Initiative'
+                  </div>
+                  <div className="text-xs text-gray-500">1 week ago</div>
+                </div>
+              </div>
+              <div className="w-[1.8px] h-10 bg-gray-200 relative left-2"></div>
+            </li>
+            <li>
+              <div className="flex items-start gap-3">
+                <div className="font-[18px]">
+                  <GoPeople />
+                </div>
+                <div>
+                  <div className="text-sm font-medium">
+                    Volunteer recruitment drive successful
+                  </div>
+                  <div className="text-xs text-gray-500">2 weeks ago</div>
+                </div>
               </div>
             </li>
           </ul>
